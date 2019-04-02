@@ -23,6 +23,7 @@
         top
         right
         color="#02A9EA"
+        @click="addToFavorites(weatherData)"
       ><v-icon style="font-style: normal;">☆</v-icon></v-btn>
   </div>
 </template>
@@ -32,7 +33,9 @@ export default {
   name: 'Current',
   props: {
     value: Array,
-    dates: Array
+    dates: Array,
+    weatherData: Object,
+    addToFavorites: Function
   },
   computed: {
     low: function() {
