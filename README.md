@@ -1,4 +1,4 @@
-# animals-vue-testing-2
+# weather-tester
 
 ## Project setup
 ```

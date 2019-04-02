@@ -1,33 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-content>
+      <Search :updateWeatherData="updateWeatherData" />
+      <Current />
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Search from './components/Search';
+import Current from './components/Current'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    HelloWorld
+    Search,
+    Current
   },
-  mounted: function() {
-    fetch('http://127.0.0.1:3000/')
-      .then(res => res.json())
-      .then(res =>{ console.log(res) })
+  data () {
+    return {
+      weatherData: Object
+    }
+  },
+  methods: {
+    updateWeatherData: function(data) {
+      console.log({data})
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
